@@ -8,10 +8,12 @@ CFLAGS := -O3 -I .
 SRCS := $(shell find . -name '*.c')
 OBJS := $(subst .cpp,.o,$(SRCS))
 
+WD := $(shell pwd)
+
 all: deepbelief
 
 deepbelief: $(OBJS)
-	gcc -o deepbelief $(OBJS) -L/usr/lib -ljpcnn
+	gcc -o deepbelief $(OBJS) -L$(WD) -ljpcnn
 
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -fPIC -c $< -o $(basename $@).o
