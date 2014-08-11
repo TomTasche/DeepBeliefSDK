@@ -13,7 +13,7 @@ WD := $(shell pwd)
 all: deepbelief
 
 deepbelief: $(OBJS)
-	gcc -o deepbelief $(OBJS) -L$(WD) -ljpcnn
+	gcc -o deepbelief $(OBJS) ./libjpcnn.so 
 
 %.o: %.cpp
 	$(CC) $(CPPFLAGS) -fPIC -c $< -o $(basename $@).o
